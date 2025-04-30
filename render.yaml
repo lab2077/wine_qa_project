@@ -1,0 +1,11 @@
+# Despliegue para la app Flask
+services:
+  - type: web
+    name: wine-qa-flask
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -b 0.0.0.0:10000 src.wine_qa_flask:app
+    envVars:
+      - key: PORT
+        value: 10000
