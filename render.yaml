@@ -1,7 +1,10 @@
 services:
   - type: web
-    name: wine-qa-flask
+    name: wine-qa-streamlit
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: streamlit run src/wine_qa_streamlit.py --server.port=10000
+    envVars:
+      - key: PORT
+        value: 10000
