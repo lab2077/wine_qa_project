@@ -2,13 +2,16 @@ from flask import Flask, request, render_template
 from sklearn.datasets import load_wine
 import pickle
 import numpy as np
+import os
 
 # Inicializar la app Flask
 app = Flask(__name__)
 
 # Cargar el modelo entrenado
-with open("wine_model.pkl", "rb") as file:
+model_path = os.path.join(os.path.dirname(__file__), "wine_model.pkl")
+with open(model_path, "rb") as file:
     model = pickle.load(file)
+
 
 # Cargar nombres de las clases del dataset original
 wine_data = load_wine()
