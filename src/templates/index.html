@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <title>Clasificador de Vinos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      color: #880e4f;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #880e4f;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ad1457;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Clasificación de Vinos</h2>
+
+  <form method="post">
+    <label>Alcohol:</label>
+    <input type="number" step="any" name="alcohol" required>
+
+    <label>Ácido málico:</label>
+    <input type="number" step="any" name="malic_acid" required>
+
+    <label>Ceniza:</label>
+    <input type="number" step="any" name="ash" required>
+
+    <label>Alcalinidad de la ceniza:</label>
+    <input type="number" step="any" name="alcalinity_of_ash" required>
+
+    <label>Magnesio:</label>
+    <input type="number" step="any" name="magnesium" required>
+
+    <label>Fenoles totales:</label>
+    <input type="number" step="any" name="total_phenols" required>
+
+    <label>Flavonoides:</label>
+    <input type="number" step="any" name="flavanoids" required>
+
+    <label>Fenoles no flavonoides:</label>
+    <input type="number" step="any" name="nonflavanoid_phenols" required>
+
+    <label>Proantocianinas:</label>
+    <input type="number" step="any" name="proanthocyanins" required>
+
+    <label>Intensidad de color:</label>
+    <input type="number" step="any" name="color_intensity" required>
+
+    <label>Tonalidad (Hue):</label>
+    <input type="number" step="any" name="hue" required>
+
+    <label>OD280/OD315 (diluidos):</label>
+    <input type="number" step="any" name="od280_od315" required>
+
+    <label>Prolina:</label>
+    <input type="number" step="any" name="proline" required>
+
+    <input type="submit" value="Predecir">
+  </form>
+
+  {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+  {% endif %}
+
+</body>
+</html>
