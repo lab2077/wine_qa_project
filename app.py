@@ -1,0 +1,1 @@
+from src.wine_qa_flask import app
