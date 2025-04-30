@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: wine-qa-flask
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn src.wine_qa_flask:app
