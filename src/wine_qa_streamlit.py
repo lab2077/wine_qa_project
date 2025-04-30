@@ -2,9 +2,11 @@ import streamlit as st
 import pickle
 import numpy as np
 from sklearn.datasets import load_wine
+import os
 
 # Cargar el modelo
-with open("wine_model.pkl", "rb") as file:
+model_path = os.path.join(os.path.dirname(__file__), "wine_model.pkl")
+with open(model_path, "rb") as file:
     model = pickle.load(file)
 
 # Nombres de clase reales y amigables
